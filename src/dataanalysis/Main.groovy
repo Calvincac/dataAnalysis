@@ -8,7 +8,11 @@ package dataanalysis
 class Main {
     
     static void main(String[] args) {
-        println("Hey There");
+        
+        Salesman sales = new Salesman(12341,1234567891234,"Calvin",5000); 
+        
+        println(sales.toString());
+       
     }
 	
 }
