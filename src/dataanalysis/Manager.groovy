@@ -48,10 +48,19 @@ class Manager {
         while(matcher.find()) {
             arr.add(matcher.group());
         }
-        
-        for(def i=1; i<arr.size(); i++) {
-            println(arr.get(i) * arr.get(i+1));
+        println(arr);
+        for(def i=0; i<arr.size(); i++) {
+            def y = arr.get(i) as Double;
+            
+            if(i == 0) {
+                println(arr.get(i+1) * arr.get(i+2));
+            } else {
+                println(arr.get(i+2) * arr.get(i+3));
+            }
+            
         }
+        
+        
        
     }   
 }
