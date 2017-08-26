@@ -11,6 +11,10 @@ class Customer {
     private def name;
     private def businessArea;
     
+    public def Customer() {
+        
+    }
+    
     public def Customer(id, cnpj, name, businessArea) {
         this.id = id;
         this.cnpj = cnpj;

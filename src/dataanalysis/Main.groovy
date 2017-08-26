@@ -1,5 +1,6 @@
-
 package dataanalysis
+
+import java.io.File 
 
 /**
  *
@@ -7,13 +8,9 @@ package dataanalysis
  */
 class Main {
     
-    static void main(String[] args) {
-        
-        Salesman sales = new Salesman(12341,1234567891234,"Calvin",5000); 
-        
-        println(sales.toString());
-       
-    }
-	
+    static void main(String[] args) {     
+        def builder = new Builder();
+        builder.readFile();
+    }	
 }
 

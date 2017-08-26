@@ -11,6 +11,10 @@ class Salesman {
     private def name;
     private def salary;
     
+    public def Salesman() {
+        
+    }
+    
     public def Salesman(id, cpf, name, salary) {
         this.id = id;
         this.cpf = cpf;

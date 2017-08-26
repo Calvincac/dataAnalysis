@@ -11,6 +11,10 @@ class SalesData {
     private def items;
     private def salesmanName;
     
+    public def SalesData() {
+        
+    }
+    
     public def SalesData(id, saleId, items, salesmanName) {
         this.id = id;
         this.saleId = saleId;
@@ -33,6 +37,13 @@ class SalesData {
     public def getSalesmanName() {
         return this.salesmanName;
     }
+    
+    public String toString() {
+       return "Id: " + this.id + \
+              "\nSaleId: " + this.saleId + \
+              "\nItems: " + this.items + \
+              "\nSalesmanName: " + this.salesmanName;
+    }  
     
 }
 
