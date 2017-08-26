@@ -20,20 +20,16 @@ class Manager {
         def countCustomer = 0;
         def countSalesman = 0
         
-        for(item in this.data) {
-            
+        for(item in this.data) {            
             if(item instanceof Customer) {
                 countCustomer++;
-            }
-            
+            }            
             if(item instanceof Salesman) {
                 countSalesman++;
-            }
-            
+            }            
             if(item instanceof SalesData) {
                 checkMostExpensiveSale(item);
-            }
-            
+            }            
         }
     }
     
@@ -44,9 +40,19 @@ class Manager {
     }
     
     public def processItem(items) {
-        def p = items.split(",");
+        def pattern = "[(\\d)+.]+";
+        def arr = new ArrayList();
+        Pattern pat= Pattern.compile(pattern);
+        Matcher matcher = pat.matcher(items);
         
-        println(p[0]);
+        while(matcher.find()) {
+            arr.add(matcher.group());
+        }
+        
+        for(def i=1; i<arr.size(); i++) {
+            println(arr.get(i) * arr.get(i+1));
+        }
+       
     }   
 }
 
