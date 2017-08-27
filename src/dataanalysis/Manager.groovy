@@ -36,24 +36,22 @@ class Manager {
     
     public def checkMostExpensiveSale(sale) {
         def expensive = 0;        
-        processItem(sale.getItems());        
+        def value = processItem(sale.getItems());        
     }
     
-    public def processItem(items) {
-        
+    public def processItem(items) {        
         def it =  items.replace("[", "").replace("]", "");
-        def item =  it.split(","); // array de items
-        def prices = new ArrayList();
+        def item =  it.split(",");
+        def sum = 0;
         
         for(def i=0; i<item.length; i++) {
             def information = item[i].split("-");
             def quantity = information[1] as Double;
             def price = information[2] as Double;
-            
-            prices.add(price * quantity);
+            def fullPrice = price * quantity;
+            sum = sum + fullPrice;
         }        
-        //println(prices);        
-       
+        return sum;      
     }   
 }
 
