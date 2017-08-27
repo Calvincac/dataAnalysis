@@ -6,34 +6,36 @@ package dataanalysis
  */
 class Builder {
     
+    private def arrayOfBeans = new ArrayList();   
     
     public def Builder() {
 
-    }
-    
+    }    
     
     public def readFile() {
         new File("src/dataanalysis/data/in/file.dat").eachLine {
             line -> line ? build(line) :"";
-        }  
+        }
+        return this;
     }
     
     public def build(line) {
         def pattern = "ç";
         def property = line.split(pattern);
-        def arr = new ArrayList();
         
         if(property[0] == "001") {
-          arr.add(new Salesman(property[0], property[1], property[2], property[3]));
+            this.arrayOfBeans.add(new Salesman(property[0], property[1], property[2], property[3]));
         }
         if(property[0] == "002") {
-           arr.add(new Customer(property[0], property[1], property[2], property[3]));
+           this.arrayOfBeans.add(new Customer(property[0], property[1], property[2], property[3]));
         }
         if(property[0] == "003") {
-            arr.add(new SalesData(property[0], property[1], property[2], property[3]));
+            this.arrayOfBeans.add(new SalesData(property[0], property[1], property[2], property[3]));
         }
-        
-        return new Manager(arr);
+    }
+    
+    public def callManager() {
+        return new Manager(this.arrayOfBeans);        
     }
 	
 }

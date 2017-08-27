@@ -10,7 +10,7 @@ class Main {
     
     static void main(String[] args) {     
         def builder = new Builder();
-        builder.readFile();
+        builder.readFile().callManager();
     }	
 }
 
