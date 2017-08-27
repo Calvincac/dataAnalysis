@@ -26,7 +26,7 @@ class SalesData {
         return this.id;
     }
     
-    public def getsaleId() {
+    public def getSaleId() {
         return this.saleId;
     }
     

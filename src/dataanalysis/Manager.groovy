@@ -12,6 +12,8 @@ class Manager {
     private def data;
     private def mostExpensive = 0;
     private def leastExpensiveSale = Double.MAX_VALUE;
+    private def worstSalesMan;
+    private def idExpensiveSale;
     
     public def Manager(array) {
         this.data = array;
@@ -48,8 +50,9 @@ class Manager {
         
         if(value > this.mostExpensive) {
             this.mostExpensive = value;
+            this.idExpensiveSale = sale.getSaleId();
         }
-        return this.mostExpensive;
+        return this.idExpensiveSale;
     }
     
     public def getWorstSalesman(sale) {
@@ -57,8 +60,9 @@ class Manager {
         
         if(value < this.leastExpensiveSale) {
             this.leastExpensiveSale = value;
+            this.worstSalesMan = sale.getSalesmanName();
         }
-        return sale.getSalesmanName();
+        return this.worstSalesMan;
     }
     
     public def processItem(items) {        
