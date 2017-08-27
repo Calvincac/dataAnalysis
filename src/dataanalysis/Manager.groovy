@@ -22,7 +22,7 @@ class Manager {
         def countCustomer = 0;
         def countSalesman = 0
         def expensiveSale = 0;
-        def leastExpensiveSale = 0;
+        def worstSalesman = "";
         
         for(item in this.data) {            
             if(item instanceof Customer) {
@@ -32,15 +32,18 @@ class Manager {
                 countSalesman++;
             }            
             if(item instanceof SalesData) {
-                expensiveSale = checkMostExpensiveSale(item);
-                leastExpensiveSale = checkLeastExpensiveSale(item);
+                expensiveSale = getIdMostExpensiveSale(item);
+                worstSalesman = getWorstSalesman(item);
             }            
         }        
-        println(leastExpensiveSale);
+        println("Worst Salesman: " + worstSalesman);
+        println("Expensive Sale: " + expensiveSale);
+        println("Number of Customers: " + countCustomer);
+        println("Number of Salesmen: " + countSalesman);
     }
     
     
-    public def checkMostExpensiveSale(sale) {        
+    public def getIdMostExpensiveSale(sale) {        
         def value = processItem(sale.getItems());
         
         if(value > this.mostExpensive) {
@@ -49,13 +52,13 @@ class Manager {
         return this.mostExpensive;
     }
     
-    public def checkLeastExpensiveSale(sale) {
+    public def getWorstSalesman(sale) {
         def value = processItem(sale.getItems());
         
         if(value < this.leastExpensiveSale) {
             this.leastExpensiveSale = value;
         }
-        return this.leastExpensiveSale;
+        return sale.getSalesmanName();
     }
     
     public def processItem(items) {        
