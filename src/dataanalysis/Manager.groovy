@@ -40,27 +40,19 @@ class Manager {
     }
     
     public def processItem(items) {
-        def pattern = "[(\\d)+.]+";
-        def arr = new ArrayList();
-        Pattern pat= Pattern.compile(pattern);
-        Matcher matcher = pat.matcher(items);
         
-        while(matcher.find()) {
-            arr.add(matcher.group());
-        }
-        println(arr);
-        for(def i=0; i<arr.size(); i++) {
-            def y = arr.get(i) as Double;
+        def it =  items.replace("[", "").replace("]", "");
+        def item =  it.split(","); // array de items
+        def prices = new ArrayList();
+        
+        for(def i=0; i<item.length; i++) {
+            def information = item[i].split("-");
+            def quantity = information[1] as Double;
+            def price = information[2] as Double;
             
-            if(i == 0) {
-                println(arr.get(i+1) * arr.get(i+2));
-            } else {
-                println(arr.get(i+2) * arr.get(i+3));
-            }
-            
-        }
-        
-        
+            prices.add(price * quantity);
+        }        
+        //println(prices);        
        
     }   
 }
