@@ -42,6 +42,7 @@ class Manager {
         println("Expensive Sale: " + expensiveSale);
         println("Number of Customers: " + countCustomer);
         println("Number of Salesmen: " + countSalesman);
+        def output = new FileManager(worstSalesman, expensiveSale, countCustomer, countSalesman);
     }
     
     
