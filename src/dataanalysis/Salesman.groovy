@@ -25,11 +25,7 @@ class Salesman {
     public def getId() {
         return this.id;
     }
-    
-    public def getCpf() {
-        return this.cpf;
-    }
-    
+   
     public def getName() {
         return this.name;
     }

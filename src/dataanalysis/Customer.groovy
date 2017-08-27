@@ -22,22 +22,6 @@ class Customer {
         this.businessArea = businessArea;
     }
     
-    public def getId() {
-        return this.id;
-    }
-    
-    public def getCnpj() {
-        return this.cnpj;
-    }
-    
-    public def getName() {
-        return this.name;
-    }
-    
-    public def getBusinessArea() {
-        return this.businessArea;
-    }
-    
     public String toString() {
        return "Id: " + this.id + \
               "\nCNPJ: " + this.cnpj + \

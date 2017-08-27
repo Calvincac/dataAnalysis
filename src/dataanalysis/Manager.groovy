@@ -20,6 +20,7 @@ class Manager {
     public def processData(){
         def countCustomer = 0;
         def countSalesman = 0
+        def expensiveSale = 0;
         
         for(item in this.data) {            
             if(item instanceof Customer) {
@@ -29,9 +30,11 @@ class Manager {
                 countSalesman++;
             }            
             if(item instanceof SalesData) {
-                checkMostExpensiveSale(item);
+                expensiveSale = checkMostExpensiveSale(item);
             }            
         }
+        
+        println(expensiveSale);
     }
     
     
@@ -40,9 +43,7 @@ class Manager {
         
         if(value > this.mostExpensive) {
             this.mostExpensive = value;
-            println("Value: " + value + " Most exp: " + this.mostExpensive);
         }
-
         return this.mostExpensive;
     }
     
