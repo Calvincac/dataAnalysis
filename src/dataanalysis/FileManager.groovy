@@ -24,7 +24,16 @@ class FileManager {
     }
     
     public def writeToFile() {
+        def filename = "src/dataanalysis/data/out/file.done.dat";
+        def file = new File(filename);
+        def w = file.newWriter();
+        def string = "Amount of clients: " + this.countCustomer + 
+                     " Amount of Salesman: " + this.countSalesman +
+                     " ID of most expensive sale: " + this.expensiveSale + 
+                     " Worst salesman ever: " + this.worstSalesman;
         
+        w << string;
+        w.close();                        
     }
 	
 }
