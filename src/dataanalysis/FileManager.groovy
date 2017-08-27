@@ -11,6 +11,7 @@ package dataanalysis
  * @author calvin
  */
 class FileManager {
+    
     private def worstSalesman;
     private def expensiveSale;
     private def countCustomer;
@@ -34,7 +35,6 @@ class FileManager {
         
         w << string;
         w.close();                        
-    }
-	
+    }	
 }
 

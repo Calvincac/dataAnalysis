@@ -10,20 +10,12 @@ class SalesData {
     private def saleId;
     private def items;
     private def salesmanName;
-    
-    public def SalesData() {
-        
-    }
-    
+
     public def SalesData(id, saleId, items, salesmanName) {
         this.id = id;
         this.saleId = saleId;
         this.items = items;
         this.salesmanName = salesmanName;
-    }
-    
-    public def getId() {
-        return this.id;
     }
     
     public def getSaleId() {

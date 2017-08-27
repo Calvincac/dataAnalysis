@@ -7,11 +7,7 @@ package dataanalysis
 class Builder {
     
     private def arrayOfBeans = new ArrayList();   
-    
-    public def Builder() {
-
-    }    
-    
+       
     public def readFile() {
         new File("src/dataanalysis/data/in/file.dat").eachLine {
             line -> line ? build(line) :"";

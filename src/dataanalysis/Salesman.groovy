@@ -21,19 +21,7 @@ class Salesman {
         this.name = name;
         this.salary = salary;
     }
-    
-    public def getId() {
-        return this.id;
-    }
-   
-    public def getName() {
-        return this.name;
-    }
-    
-    public def getSalary() {
-        return this.salary;
-    }
-    
+        
    public String toString() {
        return "Id: " + this.id + \
               "\nCpf: " + this.cpf + \
