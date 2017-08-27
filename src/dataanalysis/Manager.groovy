@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 class Manager {
     
     private def data;
+    private def mostExpensive = 0;
     
     public def Manager(array) {
         this.data = array;
@@ -34,9 +35,15 @@ class Manager {
     }
     
     
-    public def checkMostExpensiveSale(sale) {
-        def expensive = 0;        
-        def value = processItem(sale.getItems());        
+    public def checkMostExpensiveSale(sale) {        
+        def value = processItem(sale.getItems());
+        
+        if(value > this.mostExpensive) {
+            this.mostExpensive = value;
+            println("Value: " + value + " Most exp: " + this.mostExpensive);
+        }
+
+        return this.mostExpensive;
     }
     
     public def processItem(items) {        
