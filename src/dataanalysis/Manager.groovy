@@ -11,6 +11,7 @@ class Manager {
     
     private def data;
     private def mostExpensive = 0;
+    private def leastExpensiveSale = Double.MAX_VALUE;
     
     public def Manager(array) {
         this.data = array;
@@ -21,6 +22,7 @@ class Manager {
         def countCustomer = 0;
         def countSalesman = 0
         def expensiveSale = 0;
+        def leastExpensiveSale = 0;
         
         for(item in this.data) {            
             if(item instanceof Customer) {
@@ -31,10 +33,10 @@ class Manager {
             }            
             if(item instanceof SalesData) {
                 expensiveSale = checkMostExpensiveSale(item);
+                leastExpensiveSale = checkLeastExpensiveSale(item);
             }            
-        }
-        
-        println(expensiveSale);
+        }        
+        println(leastExpensiveSale);
     }
     
     
@@ -45,6 +47,15 @@ class Manager {
             this.mostExpensive = value;
         }
         return this.mostExpensive;
+    }
+    
+    public def checkLeastExpensiveSale(sale) {
+        def value = processItem(sale.getItems());
+        
+        if(value < this.leastExpensiveSale) {
+            this.leastExpensiveSale = value;
+        }
+        return this.leastExpensiveSale;
     }
     
     public def processItem(items) {        
